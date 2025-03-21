@@ -82,21 +82,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const flags = languageSwitcher.querySelectorAll(".flag-icon");
 
     function updateLanguage(lang) {
-        // Atualiza a classe 'selected' nos ícones das bandeiras
-        flags.forEach(f => f.classList.remove("selected"));
-        const selectedFlag = languageSwitcher.querySelector(`.flag-icon[data-lang="${lang}"]`);
-        if (selectedFlag) {
-            selectedFlag.classList.add("selected");
-        }
-
         // Atualiza os textos conforme a tradução
         elements.forEach(el => {
             const key = el.getAttribute("data-key");
             if (translations[lang][key]) {
                 if (el.hasAttribute("data-html")) {
-                    el.innerHTML = translations[lang][key];
+                    el.innerHTML = translations[lang][key]; // Substitui o conteúdo HTML
                 } else {
-                    el.textContent = translations[lang][key];
+                    el.textContent = translations[lang][key]; // Substitui o texto
                 }
             }
         });
