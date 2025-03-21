@@ -1,0 +1,287 @@
+/* Estilos básicos */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Cores (mantidas caso sejam utilizadas em alguma parte) */
+.color1 { background-color: #d31900; }
+.color2 { background-color: #ff6600; }
+.color3 { background-color: #fff2af; }
+.color4 { background-color: #7cb490; }
+.color5 { background-color: #000000; color: white; }
+
+.hover-effect:hover { opacity: 0.8; }
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+/* Navegação */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+@media (min-width:48em){
+    .box-carrossel { width:50%; }
+    .artigos-carrossel .imagem { display:block; }
+    .artigos-carrossel .texto  { width:67%; }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+}
+.carousel-item {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease;
+}
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.box-social {
+    margin: auto;
+    display: table;
+}
+
+.box-social li {
+    float: left;
+    text-align: center;
+    margin: 5px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.fa {
+    font-size: 32px !important;
+    margin-top: 23%;
+}
+
+.icone-box-facebook {
+    width: 53px;
+    height: 53px;
+    background-color: #3b5998;
+    color: #fff;
+}
+
+.icone-box-instagram {
+    width: 53px;
+    height: 53px;
+    background: hsl(0 0% 10%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+}
+
+.icone-box-twitter {
+    width: 53px;
+    height: 53px;
+    background-color: #00aced;
+    color: #fff;
+}
+
+.icone-box-youtube {
+    width: 53px;
+    height: 53px;
+    background-color: #dd4b39;
+    color: #fff;
+}
+
+/* FLIP COR */
+.flip-cor {
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+li:hover:hover .flip-cor {
+    transform: rotateY(360deg);
+    transition: 0.4s;
+}
+
+.back li:first-child:hover a div {
+    background-color: #e6e7e9;
+    color: #3b5998;
+    transition: 0.4s;
+}
+
+.back li:nth-child(2):hover a div {
+    background: hsl(0 0% 10%);
+    background: radial-gradient(circle at 30% 107%, #e6e7e9 0%, #e6e7e9 5%, #e6e7e9 45%, #e6e7e9 60%, #e6e7e9 90%);
+    color: #d6249f;
+    transition: 0.4s;
+}
+
+.back li:nth-child(3):hover a div {
+    background-color: #e6e7e9;
+    color: #00aced;
+    transition: 0.4s;
+}
+
+.back li:nth-child(4):hover a div {
+    background-color: #e6e7e9;
+    color: #dd4b39;
+    transition: 0.4s;
+}
+
+/* FIM FLIP-COR */
+
+.back-5 li:first-child .cor-horizontal:before {
+    background-color: #3b5998;
+}
+
+.back-5 li:nth-child(2) .cor-horizontal:before {
+    background-color: #517fa4;
+}
+
+.back-5 li:nth-child(3) .cor-horizontal:before {
+    background-color: #00aced;
+}
+.back-5 li:nth-child(4) .cor-horizontal:before {
+    background-color: #dd4b39;
+}
+
+.cor-horizontal:hover, .cor-horizontal:focus, .cor-horizontal:active {
+    color: white;
+}
+.cor-horizontal:hover:before, .cor-horizontal:focus:before, .cor-horizontal:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+/* redes sociais  */
+
+/* Resetting inherited properties for .redes-sociais ul */
+.redes-sociais ul {
+    all: unset;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.redes-sociais ul li {
+    padding: 0em 0.5em;
+}
+
+.redes-sociais .fab {
+    font-size: 1.56em; /* Aumenta 30% */
+    color: #595858;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.redes-sociais .fab:hover,
+.redes-sociais .fab:focus {
+    transform: scale(1.1);
+}
+
+/* Resume section */
+#resume .mt-4 {
+    margin-top: 1.5rem; /* Espaço entre o texto e o botão */
+}
+
+/* Botão Contratar / Currículo */
+.btn-hire {
+    background-color: #d31900 !important; /* color1 */
+    color: #7cb490 !important;            /* color4 */
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
+}
+.btn-hire:hover {
+    background-color: #ff6600 !important; /* color2 */
+    transform: scale(1.05);
+}
+
+/* Espaço para o conteúdo não ficar sob o header */
+main {
+    margin-top: 80px; /* ajuste conforme a altura do header */
+}
+
+/* Seção About */
+#about-text-container {
+    text-align: justify;
+    max-width: 625px; /* largura máxima ajustada */
+    margin: 0 auto;   /* centraliza o container */
+    font-size: 1.1rem; /* aumenta um pouco a letra */
+    line-height: 1.75;  /* espaçamento entre linhas */
+}
+
+footer img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+}
+
+.flag-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.flag-icon.selected {
+    border: 2px solid yellow;
+    border-radius: 4px;
+}
+
+.enlarged-about-image {
+    width: 27rem; /* Aproximadamente 70% maior que w-64 (16rem) */
+}
+
+/* Ícones da seção Skills */
+#Skills img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#Skills img:hover {
+    transform: scale(1.4) rotate(9deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scale-home-image {
+  transform: scale(1.8); /* Aumenta o tamanho em 1,8 vezes */
+  transition: transform 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.scale-home-image:hover {
+  transform: scale(1.85); /* Opcional: aumenta ligeiramente no hover */
+}
