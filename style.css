@@ -26,15 +26,74 @@ header {
     z-index: 50;
 }
 
-/* Navegação */
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 15px;
+header.bg-red-700 {
+    background-color: #d31900;
 }
-nav a {
-    text-decoration: none;
+
+header.text-white {
     color: white;
+}
+
+header.p-4 {
+    padding: 1rem;
+}
+
+header.flex {
+    display: flex;
+}
+
+header.flex-wrap {
+    flex-wrap: wrap;
+}
+
+header.justify-between {
+    justify-content: space-between;
+}
+
+header.items-center {
+    align-items: center;
+}
+
+header h1.text-lg {
+    font-size: 1.125rem;
+}
+
+header h1.font-bold {
+    font-weight: bold;
+}
+
+nav ul.flex-wrap {
+    flex-wrap: wrap;
+}
+
+nav ul.space-x-4 > * + * {
+    margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+    nav ul.md\:space-x-6 > * + * {
+        margin-left: 1.5rem;
+    }
+}
+
+nav a.hover\:text-yellow-400:hover {
+    color: #ffcc00;
+}
+
+nav a.lang[data-key="home"]::after {
+    content: "Home";
+}
+
+nav a.lang[data-key="about"]::after {
+    content: "Sobre";
+}
+
+nav a.lang[data-key="projects"]::after {
+    content: "Projetos";
+}
+
+nav a.lang[data-key="contact"]::after {
+    content: "Contato";
 }
 
 @media (min-width:48em){
@@ -277,10 +336,7 @@ footer img:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.scale-home-image {
-  transform: scale(1.8); /* Aumenta o tamanho em 1,8 vezes */
-  transition: transform 0.3s ease; /* Adiciona uma transição suave */
-}
+
 
 .scale-home-image:hover {
   transform: scale(1.85); /* Opcional: aumenta ligeiramente no hover */
