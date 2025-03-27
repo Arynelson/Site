@@ -352,3 +352,13 @@ footer img:hover {
     font-size: 2rem; /* Adjust font size if needed */
     font-weight: bold; /* Makes the text bold */
 }
+
+#imageModal {
+  z-index: 1000;
+}
+#imageModal img {
+  transition: transform 0.3s ease-in-out;
+}
+#imageModal img:hover {
+  transform: scale(1.05);
+}
