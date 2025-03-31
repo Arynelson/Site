@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Desenvolvido com Python e Tkinter, este jogo apresenta uma interface gráfica amigável (GUI) com botões clicáveis para exploração e interações.
             Você pode jogar fazendo o download do arquivo Main.py no github e executando no seu editor de codigos.`,
             "JobSearchProject" : "Job Finder é uma aplicação web projetada para ajudar usuários a buscar oportunidades de emprego na Alemanha, salvar vagas, acompanhar candidaturas e gerenciar eficientemente seu processo de contratação. A plataforma integra-se à API do Arbeitnow para obter listas de empregos em tempo real e oferece autenticação segura para que os usuários possam acompanhar vagas personalizadas.",
-            "MelodiaProject" : "Melodia é um clone do Spotify desenvolvido para transmitir música com uma interface de usuário elegante e responsiva. Ele permite aos usuários navegar, reproduzir músicas e gerenciar suas próprias playlists.",
+            "BarberProject" : "Aplicativo desktop completo e funcional offline, ideal para barbearias de pequeno e médio porte. Oferece agendamento, gestão de clientes e serviços, controle de profissionais, finanças e relatórios — tudo com segurança e uma interface simples e intuitiva.",
             "RestaurantManProject":"Este é um Sistema de Gerenciamento de Pedidos de Restaurante projetado para agilizar o processo de gerenciamento de pedidos dentro de um restaurante. O aplicativo é personalizado para uso por garçons, caixas, gerentes e equipe de cozinha. Ele fornece uma interface intuitiva para lidar com itens de menu, pedidos de clientes e atualizações em tempo real."
         },
         "en": {
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             Developed with Python and Tkinter, this game features a user-friendly graphical user interface (GUI) with clickable buttons for exploration and interactions.
             You can play by downloading the Main.py file from github and running it in your code editor.`,
             "JobSearchProject" : "Job Finder is a web application designed to help users search for job opportunities in Germany, save jobs, track applications, and manage their hiring process efficiently. The platform integrates with the Arbeitnow API for real-time job listings and provides secure user authentication for personalized job tracking.",
-            "MelodiaProject" : "Melodia  is a Spotify clone built to stream music with a sleek and responsive user interface. It allows users to browse, play songs, and manage their own playlists.",
+            "BarberProject" : "A complete, offline-ready desktop app designed for small and medium-sized barbershops. It includes appointment scheduling, client and service management, professional tracking, financial control, and detailed reports — all within a secure and user-friendly interface.",
             "RestaurantManProject":"This is a Restaurant Order Management System designed to streamline the process of managing orders within a restaurant. The application is tailored for use by waiters, cashiers, managers, and kitchen staff. It provides an intuitive interface for handling menu items, customer orders, and real-time updates."
         },
         "it": {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function() {
             "escapeRoomDesc": `Escape Room Game è un gioco di avventura rompicapo semplice e interattivo in cui il giocatore deve esplorare diverse stanze, trovare oggetti nascosti e sbloccare la password segreta di 4 cifre per fuggire.
             Puoi giocare scaricando il file Main.py da github ed eseguirlo nel tuo editor di codice.`,
             "JobSearchProject" : "Job Finder è un'applicazione web progettata per aiutare gli utenti a cercare opportunità di lavoro in Germania, salvare offerte di lavoro, monitorare candidature e gestire in modo efficiente il processo di assunzione. La piattaforma si integra con l'API di Arbeitnow per annunci di lavoro in tempo reale e fornisce un'autenticazione sicura per un tracciamento personalizzato delle candidature.",
-            "MelodiaProject" : "Melodia è un clone di Spotify creato per lo streaming di musica con un'interfaccia utente elegante e reattiva. Consente agli utenti di esplorare, riprodurre brani e gestire le proprie playlist.",
+            "BarberProject" : "App desktop completo e utilizzabile offline, pensato per barbieri di piccole e medie dimensioni. Include gestione degli appuntamenti, clienti e servizi, monitoraggio dei professionisti, controllo finanziario e report dettagliati — il tutto in un'interfaccia sicura e intuitiva.",
             "RestaurantManProject":"Questo è un sistema di gestione degli ordini di ristoranti progettato per semplificare il processo di gestione degli ordini all'interno di un ristorante. L'applicazione è pensata per essere utilizzata da camerieri, cassieri, manager e personale di cucina. Fornisce un'interfaccia intuitiva per gestire voci di menu, ordini dei clienti e aggiornamenti in tempo reale."
         }
     };
