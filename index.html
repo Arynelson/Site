@@ -1,524 +1,545 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt">
-  <head>
+<html lang="pt-br">
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AHN DEV</title>
-
-    <!-- Scripts -->
-    <script src="script.js" defer></script>
+    <link rel="shortcut icon" href="assets/icons/logo.png" type="x-icon" />
+    <meta name="description" content="Desenvolvedor Full Stack." />
+    <meta property="og:title" content="Ary Hauffe Neto" />
+    <title>Portfólio Ary Hauffe Neto</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      defer
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-
-    <!-- SEO Meta Tags -->
-    <meta
-      name="keywords"
-      content="Fullstack Developer, Software Developer, Freelance Developer, Web Development, Frontend Developer, Backend Developer, JavaScript, React, Node.js, HTML, CSS, Portfolio, Open Source Contributor, Italy, Remote Work, Freelance Programmer, Hire Developer"
-    />
-    <meta
-      name="description"
-      content="Experienced Fullstack Software Developer based in Italy, specializing in frontend and backend development. Skilled in JavaScript, React, Node.js, and passionate about open source contributions. Available for freelance and remote work worldwide."
-    />
-
-    <!-- Favicon -->
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-gray-100">
-    <!-- HEADER -->
-    <header class="bg-red-700 text-white p-4 flex justify-between items-center">
-      <div class="flex items-center space-x-2">
-        <!-- <h1 class="text-lg font-bold">Ary Hauffe Neto</h1> -->
-        <img src="assets/icons/logosbk.png" alt="Logo" class="w-10 h-10" />
-      </div>
-      <nav class="hidden md:flex">
-        <ul class="flex space-x-4">
-          <li>
-            <a href="#home" class="hover:text-yellow-400 lang">Home</a>
-          </li>
-          <li>
-            <a href="#about" class="hover:text-yellow-400 lang">About</a>
-          </li>
-          <li>
-            <a href="#projects" class="hover:text-yellow-400 lang">Projects</a>
-          </li>
-          <li>
-            <a href="#contact" class="hover:text-yellow-400 lang">Contact</a>
-          </li>
-        </ul>
-      </nav>
-      <div id="languageSwitcher" class="flex items-center space-x-2">
-        <img
-          src="assets/icons/pt_flag.png"
-          alt="Português"
-          data-lang="pt"
-          class="flag-icon cursor-pointer"
-        />
-        <img
-          src="assets/icons/en_flag.png"
-          alt="English"
-          data-lang="en"
-          class="flag-icon cursor-pointer"
-        />
-        <img
-          src="assets/icons/it_flag.png"
-          alt="Italiano"
-          data-lang="it"
-          class="flag-icon cursor-pointer"
-        />
-      </div>
+</head>
+
+<body class="font-opensans">
+    <!-- Header fixo (fixed top-0)-->
+    <header class="bg-[#1E2A38] px-4 py-4 fixed top-0 w-full z-50 shadow-md">
+        <nav class="max-w-7xl mx-auto flex ">
+            <!-- LOGO E BOTÃO MENU MOBILE -->
+            <div class="flex w-full md:w-auto">
+                <!-- Botão Mobile -->
+                <div class="md:hidden">
+                    <button onclick="onToggleMenu()" class="text-white text-3xl right-0 :outline-none">
+                        ☰
+                    </button>
+                </div>
+            </div>
+            <!-- MENU DESKTOP -->
+            <ul class="hidden md:flex items-center gap-8 text-white text-sm font-medium ml-auto">
+                <li><a href="#home" class="hover:text-blue-300">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-300">About</a></li>
+                <li><a href="#projects" class="hover:text-blue-300">Portfolio</a></li>
+                <li><a href="#service" class="hover:text-blue-300">Service</a></li>
+                <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
+                <a href="mailto:aryhauffeneto@gmail.com"
+                    class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-1.5 rounded-md shadow hover:from-blue-600 hover:to-blue-800 transition">Hire
+                    Me</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- MENU MOBILE -->
+        <div id="mobileMenu"
+            class="hidden flex-col bg-[#1E2A38] items-center text-white w-full px-5 py-6 gap-4 text-base font-medium md:hidden">
+            <a href="#home" class="text-center w-full">Home</a>
+            <a href="#about" class="text-center w-full">About</a>
+            <a href="#projects" class="text-center w-full">Portfolio</a>
+            <a href="#service" class="text-center w-full">Service</a>
+            <a href="#contact" class="text-center w-full">Contact</a>
+        </div>
     </header>
+    <script>
+        function onToggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        function openModal(title, description, stackIcons = []) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            // Limpa ícones anteriores
+            const stackContainer = document.getElementById('modalStackIcons');
+            stackContainer.innerHTML = '';
+            // Adiciona novos ícones
+            stackIcons.forEach(icon => {
+                const img = document.createElement('img');
+                img.src = icon.src;
+                img.alt = icon.alt;
+                img.className = 'w-10 h-10';
+                stackContainer.appendChild(img);
+            });
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+        }
 
-    <text-700 class="container mx-auto">
-      <!-- HOME Section -->
-      <section id="home" class="h-screen flex bg-gray-200">
-        <!-- Imagem de perfil -->
-        <div class="w-1/2 flex justify-center items-center">
-          <img
-            src="assets/images/homepic.png"
-            alt="Minha Foto"
-            class="w-80 rounded-full shadow-lg"
-          />
-        </div>
-        <!-- Texto e Botões -->
-        <div class="w-1/2 flex flex-col justify-center items-start p-10">
-          <h1
-            class="text-3xl font-bold intro-text lang"
-            data-key="intro"
-            data-html
-          >
-            <!-- O conteúdo será atualizado via script.js conforme o idioma -->
-            <p>
-              My name is Ary Hauffe Neto<br />
-              I’m a Full Stack Developer.
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').classList.remove('flex');
+        }
+    </script>
+    <main class="pt-32 pb-20 px-4 bg-[#0F172A] text-white min-h-screen flex flex-col items-center">
+        <!-- HOME Section -->
+        <section id="home" class="text-center max-w-2xl">
+            <!-- Foto de Perfil -->
+            <div class="mx-auto w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white mb-6">
+                <img src="assets/images/homepic.png" alt="Ary Hauffe" class="w-full h-full object-cover" />
+            </div>
+            <!-- Título -->
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                Hello, I’m <span class="text-blue-400 underline">Ary Hauffe</span>,
+            </h1>
+            <h2 class="text-xl md:text-2xl font-semibold mb-4">Full Stack Developer</h2>
+            <!-- Descrição -->
+            <p class="text-sm md:text-base text-gray-300 leading-relaxed mb-6 px-4">
+                Full-stack web developer specialized in <span class="text-blue-300 font-semibold "> Java and
+                    React</span> — </br>
+                building clean, efficient, and scalable solutions.
             </p>
-          </h1>
-          <div class="mt-4 flex gap-4">
-            <a
-              id="hire-me-button"
-              href="https://wa.me/393313151621"
-              target="_blank"
-              class="btn-hire lang"
-              data-key="hire"
-              >Contratar</a
-            >
-            <a
-              id="cv-button"
-              href="assets/CV/CV_ARY_EN.pdf"
-              class="btn-hire lang"
-              data-key="cv"
-              >Currículo</a
-            >
-          </div>
-        </div>
-      </section>
+            <!-- Ícones Sociais -->
+            <div class="flex justify-center space-x-4 mt-2 p-4 text-white text-center">
 
-      <!-- ABOUT Section -->
-      <section id="about" class="p-10 bg-white md:text-left">
-        <div class="flex flex-col md:flex-row items-center md:justify-between">
-          <!-- Texto da seção About -->
-          <div class="md:w-1/2">
-            <h2 class="text-3xl font-bold text-700 lang" data-key="aboutTitle">
-              Sobre Mim
-            </h2>
-            <!-- O conteúdo será preenchido via script.js -->
-            <div
-              id="about-text-container"
-              class="mt-4 lang"
-              data-key="aboutText"
-              data-html
-            ></div>
-          </div>
-          <!-- Imagem com moldura retangular (aumentada 70%) -->
-          <div class="md:w-1/2 mt-4 md:mt-0 flex justify-center">
-            <img
-              src="assets/images/aboutpic.png"
-              alt="Minha Foto"
-              class="enlarged-about-image border border-gray-400"
-            />
-          </div>
-        </div>
-      </section>
+                <a href="https://github.com/Arynelson/">
+                    <img src="assets/icons/github_icon.png" alt="GitHub" />
 
-      <!-- PROJECTS Section -->
-      <section id="projects" class="p-10 bg-gray-300 text-center">
-        <h2 class="text-3xl font-bold text-700 lang" data-key="projectsTitle">
-          Projetos Recentes
-        </h2>
-        <div
-          class="relative overflow-hidden"
-          x-data="{ activeIndex: 0, isMobile: window.innerWidth < 768 }"
-          @resize.window="isMobile = window.innerWidth < 768"
-        >
-          <div
-            class="flex transition-transform duration-300 ease-in-out"
-            :style="'transform: translateX(-' + (activeIndex * 100 / (isMobile ? 1 : 3)) + '%)'"
-          >
-            <!-- Project 1 -->
-            <div
-              class="w-full md:w-1/3 flex-shrink-0 bg-white p-4 shadow-lg rounded-lg"
-            >
-              <img
-                src="assets/images/Client_manager.jpeg"
-                class="w-full h-48 object-cover rounded-lg cursor-pointer"
-                alt="Restaurant Manager Screenshot"
-                @click="showImageModal('assets/images/Client_manager.jpeg')"
-              />
-              <h3 class="text-xl font-bold mt-4">Restaurant Manager</h3>
-              <p
-                class="text-gray-600 mt-2 text-justify lang"
-                data-key="RestaurantManProject"
-              ></p>
-              <div class="flex justify-center gap-2 mt-4">
-                <img
-                  src="assets/stack_icons/javascript.png"
-                  alt="JavaScript"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/react.png"
-                  alt="React"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/html.png"
-                  alt="HTML"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/css.png"
-                  alt="CSS"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/postgree.png"
-                  alt="PostgreSQL"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/vite.svg"
-                  alt="Vite"
-                  class="w-10 h-10"
-                />
-              </div>
-              <div class="mt-4">
-                <a
-                  href="https://github.com/Arynelson/Restaurant_manager"
-                  class="bg-gray-800 text-white p-2 rounded hover:bg-gray-600"
-                  target="_blank"
-                >
-                  GitHub
-                </a>
-              </div>
+                    <a href="https://www.linkedin.com/in/ary-hauffe/">
+                        <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
+                    </a>
+
+                    <!-- Scroll Down Icon -->
+                    <div class="flex justify-center animate-bounce">
+                        <a href="#about" class="text-blue-400 text-xl">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </div>
+        </section>
+        <!-- ABOUT Section -->
+        <section id="about" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+                <!-- Left: Ilustração + Botão -->
+                <div class="bg-[#192A3E] rounded-lg p-6 border border-gray-600 text-center max-w-sm w-full">
+                    <img src="assets/images/draw.png" alt="About Illustration" class="mb-6 w-full" />
+                    <a href="assets/CV/CV_ARY_EN.pdf" download
+                        class="inline-block w-full py-2 bg-transparent border border-white rounded-md hover:bg-white hover:text-[#0F172A] transition text-sm">
+                        Download C.V
+                    </a>
+                </div>
+
+                <!-- Right: Texto e Detalhes -->
+                <div class="text-left">
+                    <h3 class="text-sm tracking-widest text-blue-400 font-semibold mb-2">ABOUT ME</h3>
+                    <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4 leading-snug">
+                        I Develop System<br />
+                        that Work.
+                    </h2>
+                    <p class="text-gray-300 text-sm md:text-base mb-6 max-w-xl">
+                        I build smart, reliable software to simplify daily operations
+                        and empower businesses to grow with confidence. Focused on
+                        clean code, practical solutions, and real impact.
+                    </p>
+
+                    <!-- Personal Info -->
+                    <div class="text-sm md:text-base space-y-2">
+                        <p><span class="font-semibold w-32 inline-block">Name</span>: Ary Hauffe</p>
+                        <p><span class="font-semibold w-32 inline-block">Age</span>: 40 years</p>
+                        <p><span class="font-semibold w-32 inline-block">Nationality</span>: Brazillian and Italian</p>
+                        <p><span class="font-semibold w-32 inline-block">Phone</span>: +39 331 315-1621</p>
+                        <p><span class="font-semibold w-32 inline-block">Language</span>: Portuguese, English and
+                            Italian</p>
+                        <p><span class="font-semibold w-32 inline-block">Freelance</span>: Available</p>
+                    </div>
+                </div>
             </div>
+        </section>
+        <!-- EDUCATION Section -->
+        <section id="resume" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-16 tracking-wide">RESUME</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- LEFT: Education & Experience -->
+                    <div class="space-y-12">
+                        <!-- Education -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6">Education</h3>
+                            <div class="space-y-6 border-l border-gray-600 pl-6">
+                                <div class="relative">
+                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
+                                    <p class="text-sm text-gray-400 mb-1">2025</p>
+                                    <h4 class="font-semibold">ORACLE ONE - Next Generation</h4>
+                                    <p class="text-sm text-gray-300">
+                                        online course provided by ORACLE<br />
+                                        in partnership with ALURA
+                                    </p>
+                                </div>
+                                <div class="relative">
+                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
+                                    <p class="text-sm text-gray-400 mb-1">2008–2013</p>
+                                    <h4 class="font-semibold"> Sanitary and Environmental
+                                        Engineering</h4>
+                                    <p class="text-sm text-gray-300">
+                                        University Federal of Santa Catarina - UFSC <br />
+                                        Florianópolis, Brazil<br />
+                                    </p>
+                                </div>
+                                <div class="relative">
+                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
+                                    <p class="text-sm text-gray-400 mb-1">2005–2007</p>
+                                    <h4 class="font-semibold">Computer science </h4>
+                                    <p class="text-sm text-gray-300">
+                                        University Federal of Santa Catarina - UFSC <br />
+                                        Florianópolis, Brazil<br />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Experience -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6">Working Experience</h3>
+                            <div class="space-y-6 border-l border-gray-600 pl-6">
+                                <div class="relative">
+                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
+                                    <p class="text-sm text-gray-400 mb-1">2024–2025</p>
+                                    <h4 class="font-semibold">Full Stack Developer </h4>
+                                    <p class="text-sm text-gray-300">
+                                        Pipoca Academy - Remote<br />
+                                        Worked on back-end and front-end features. Created scalable services and APIs
+                                        using Node.js & Express. Optimized databases and layout designs for mobile
+                                        responsiveness.
+                                    </p>
+                                </div>
+                                <div class="relative">
+                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
+                                    <p class="text-sm text-gray-400 mb-1">2007–2008</p>
+                                    <h4 class="font-semibold"> IT Technician </h4>
+                                    <p class="text-sm text-gray-300">
+                                        Tech Long Ltd.<br />
+                                        Worked on back-end and front-end features. Created scalable services and APIs
+                                        using Node.js & Express. Optimized databases and layout designs for mobile
+                                        responsiveness.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Project 2 -->
-            <div
-              class="w-full md:w-1/3 flex-shrink-0 bg-white p-4 shadow-lg rounded-lg"
-            >
-              <img
-                src="assets/images/BarbarShop_1.png"
-                class="w-full h-48 object-cover rounded-lg cursor-pointer"
-                alt="Barbershop Screenshot"
-                @click="showImageModal('assets/images/BarbarShop_1.png')"
-              />
-              <h3 class="text-xl font-bold mt-4">Barber Shop</h3>
-              <p
-                class="text-gray-600 mt-2 text-justify lang"
-                data-key="BarberProject"
-              ></p>
-              <div class="flex justify-center gap-2 mt-4">
-                <img
-                  src="assets/stack_icons/javascript.png"
-                  alt="JavaScript"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/react.png"
-                  alt="React"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/html.png"
-                  alt="HTML"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/node.png"
-                  alt="Node.js"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/vite.svg"
-                  alt="Vite"
-                  class="w-10 h-10"
-                />
-              </div>
-              <div class="mt-4 flex justify-center gap-4">
-                <a
-                  href="https://github.com/Arynelson/Barbershop"
-                  class="bg-gray-800 text-white p-2 rounded hover:bg-gray-600"
-                  target="_blank"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="assets/Demo/barbershop.exe"
-                  download
-                  class="bg-blue-600 text-white p-2 rounded hover:bg-blue-400"
-                >
-                  Demo(.exe)
-                </a>
-              </div>
+                    <!-- RIGHT: Knowledge & Skills -->
+                    <div class="space-y-12">
+                        <!-- Knowledges -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6">Knowledges</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Web Design</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">ReactJS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">HTML</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">JavaScript</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">NodeJS</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">MySQL</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Solidity</span>
+                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Vite</span>
+                            </div>
+                        </div>
+                        <!-- Skills -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-6">Skills</h3>
+                            <div class="space-y-5">
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>Java</span><span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[85%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>JavaScript</span><span>90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[90%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>HTML/CSS</span><span>95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[95%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>React</span><span>85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[85%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>NodeJS</span><span>75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[75%]"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1 text-sm">
+                                        <span>PostgreSQL </span><span>80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full w-[80%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Project 3 -->
-            <div
-              class="w-full md:w-1/3 flex-shrink-0 bg-white p-4 shadow-lg rounded-lg"
-            >
-              <img
-                src="assets/images/JobSearch_2.png"
-                class="w-full h-48 object-cover rounded-lg cursor-pointer"
-                alt="Job Finder Screenshot"
-                @click="showImageModal('assets/images/JobSearch_2.png')"
-              />
-              <h3 class="text-xl font-bold mt-4">Job Finder</h3>
-              <p
-                class="text-gray-600 mt-2 text-justify lang"
-                data-key="JobSearchProject"
-              ></p>
-              <div class="flex justify-center gap-2 mt-4">
-                <img
-                  src="assets/stack_icons/javascript.png"
-                  alt="JavaScript"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/react.png"
-                  alt="React"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/html.png"
-                  alt="HTML"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/css.png"
-                  alt="CSS"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/node.png"
-                  alt="Node.js"
-                  class="w-10 h-10"
-                />
-                <img
-                  src="assets/stack_icons/vite.svg"
-                  alt="Vite"
-                  class="w-10 h-10"
-                />
-              </div>
-              <div class="mt-4">
-                <a
-                  href="https://github.com/Arynelson/JobFinder"
-                  class="bg-gray-800 text-white p-2 rounded hover:bg-gray-600"
-                  target="_blank"
-                >
-                  GitHub
-                </a>
-              </div>
+        </section>
+        <!-- PORTFOLIO Section -->
+        <section id="portfolio" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-wider mb-10">PORTFOLIO</h2>
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <span
+                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">All</span>
+                    <span
+                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">JavaScript</span>
+                    <span
+                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">Python</span>
+                    <span
+                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">Java</span>
+                    <span
+                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">PostgreSQL</span>
+                </div>
+                <!-- Portfolio Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                        'Job Search (Deutschland)', 
+                        'Job Search is a web application designed to help users search for job opportunities in Germany, save jobs, track applications, and manage their hiring process efficiently. The platform integrates with the Arbeitnow API for real-time job listings and provides secure user authentication for personalized job tracking.', 
+                        [
+                          { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
+                          { src: 'assets/stack_icons/react.png', alt: 'React' },
+                          { src: 'assets/stack_icons/html.png', alt: 'HTML' },
+                          { src: 'assets/stack_icons/css.png', alt: 'CSS' },
+                          { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
+                          { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
+                        ])">
+                        <img src="assets/images/JobSearch_2.png" alt="Job Search"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Job Search (Deutschland)
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                 'Barber Shop Management', 
+                 'A complete, offline-ready desktop app designed for small and medium-sized barbershops. It includes appointment scheduling, client and service management, professional tracking, financial control, and detailed reports — all within a secure and user-friendly interface.', 
+                 [
+                   { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
+                   { src: 'assets/stack_icons/react.png', alt: 'React' },
+                   { src: 'assets/stack_icons/html.png', alt: 'HTML' },
+                   { src: 'assets/stack_icons/css.png', alt: 'CSS' },
+                   { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
+                   { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
+                 ])">
+                        <img src="assets/images/BarbarShop_1.png" alt="Barber Shop Management"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Barber Shop Management
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                        'Restaurant Management', 
+                        'This is a Restaurant Order Management System designed to streamline the process of managing orders within a restaurant. The application is tailored for use by waiters, cashiers, managers, and kitchen staff. It provides an intuitive interface for handling menu items, customer orders, and real-time updates.', 
+                        [
+                          { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
+                          { src: 'assets/stack_icons/react.png', alt: 'React' },
+                          { src: 'assets/stack_icons/html.png', alt: 'HTML' },
+                          { src: 'assets/stack_icons/css.png', alt: 'CSS' },
+                          { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
+                          { src: 'assets/stack_icons/vite.svg', alt: 'Vite' },
+                          { src: 'assets/stack_icons/postgree.png ', alt: 'PostgreSQL' }
+                        ])">
+                        <img src="assets/images/Client_manager.jpeg" alt="Restaurant_manager"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Restaurant Management
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                            'Scape-Room', 
+                            'Escape Room Game is a simple and interactive puzzle adventure game where the player must explore different rooms, find hidden items and unlock the secret 4-digit password to escape. Developed with Python and Tkinter, this game features a user-friendly graphical user interface (GUI) with clickable buttons for exploration and interactions.You can play by downloading the Main.py file from github and running it in your code editor.', 
+                            [
+                              { src: 'assets/stack_icons/python.png', alt: 'Python' }
+                            ])">
+                        <img src="assets/images/Scape_2.png" alt="Scape-Room"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Scape-Room Game
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                                'Melodia', 
+                                'Melodia is a music streaming application that allows users to discover, listen to, and manage their favorite songs and playlists seamlessly. The platform features a user-friendly interface with personalized recommendations, curated playlists, and the ability to create and share custom playlists. Melodia also supports offline listening, ensuring users can enjoy their music anytime, anywhere, while providing secure user authentication for a tailored music experience. ', 
+                                [
+                                  { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
+                                  { src: 'assets/stack_icons/react.png', alt: 'React' },
+                                  { src: 'assets/stack_icons/html.png', alt: 'HTML' },
+                                  { src: 'assets/stack_icons/css.png', alt: 'CSS' },
+                                  { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
+                                  { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
+                                ])">
+                        <img src="assets/images/Melodia_1.png" alt="Melodia"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm  rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Melodia Music Player
+                        </div>
+                    </div>
+                    <div class="relative group cursor-pointer" onclick="openModal(
+                                    'Pipoca Academy', 
+                                    'Pipoca Academy is an upcoming platform dedicated to facilitating career transitions into the tech industry. Designed to provide users with essential resources, training, and mentorship, it aims to empower individuals seeking to enhance their skills and knowledge in technology. Currently under construction, Pipoca Academy will serve as an extension of Pipoca Ágil, offering a comprehensive learning experience that includes interactive courses, expert guidance, and a supportive community to help users successfully navigate their career changes.', 
+                                    [
+                                      { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
+                                      { src: 'assets/stack_icons/html.png', alt: 'HTML' },
+                                      { src: 'assets/stack_icons/css.png', alt: 'CSS' }
+                                     ])">
+                        <img src="assets/images/Pipoca_academy.png" alt="Pipoca"
+                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
+                        <!-- Overlay Title -->
+                        <div
+                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-medium rounded-b-lg opacity-0 group-hover:opacity-100 transition">
+                            Pipoca Academy
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
+                    <div class="bg-white text-[#0F172A] rounded-lg p-6 w-full max-w-md mx-4 relative">
+                        <button onclick="closeModal()"
+                            class="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-red-600">&times;</button>
+                        <h3 id="modalTitle" class="text-xl font-bold mt-2"></h3>
+                        <p id="modalDescription" class="text-gray-700 mt-3 text-justify"></p>
+                        <div id="modalStackIcons" class="flex justify-center gap-2 mt-4 flex-wrap"></div>
+                    </div>
+                </div>
             </div>
+        </section>
+        <!-- SERVICES Section -->
+        <section id="services" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl font-bold tracking-wider mb-2">Services</h2>
+                <p class="text-gray-400 mb-12">what I offer</p>
 
-            <!-- Project 4 -->
-            <div
-              class="w-full md:w-1/3 flex-shrink-0 bg-white p-4 shadow-lg rounded-lg"
-            >
-              <img
-                src="assets/images/Scape_2.png"
-                class="w-full h-48 object-cover rounded-lg cursor-pointer"
-                alt="Escape Room Screenshot"
-                @click="showImageModal('assets/images/Scape_2.png')"
-              />
-              <h3 class="text-xl font-bold mt-4">Escape Room</h3>
-              <p
-                class="text-gray-600 mt-2 text-justify lang"
-                data-key="escapeRoomDesc"
-              ></p>
-              <div class="flex justify-center gap-2 mt-4">
-                <img
-                  src="assets/stack_icons/python.png"
-                  alt="Python"
-                  class="w-10 h-10"
-                />
-              </div>
-              <div class="mt-4">
-                <a
-                  href="https://github.com/Arynelson/Scape-Room"
-                  class="bg-gray-800 text-white p-2 rounded hover:bg-gray-600"
-                  target="_blank"
-                >
-                  GitHub
-                </a>
-              </div>
+                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                    <!-- Card 1 -->
+                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
+                        <div class="text-4xl mb-4"><i class="fas fa-code"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Front-End Developer</h3>
+                        <p class="text-sm text-gray-600 mb-4">Modern UI with React, Tailwind, animations, and responsive
+                            design.</p>
+                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
+                        <div class="text-4xl mb-4"><i class="fas fa-server"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Back-End Developer</h3>
+                        <p class="text-sm text-gray-600 mb-4">Secure APIs and scalable systems with Node, Express,
+                            SPRING, DJANGO, SQL.</p>
+                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
+                        <div class="text-4xl mb-4"><i class="fas fa-paint-brush"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Web Design</h3>
+                        <p class="text-sm text-gray-600 mb-4">Clean, minimal, and conversion-focused UI/UX design
+                            principles.</p>
+                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
+                    </div>
+                </div>
             </div>
-          </div>
+        </section>
+        <!-- CONTACT Section -->
+        <section id="contact" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
 
-          <!-- Carousel Controls -->
-          <button
-            @click="activeIndex = Math.max(activeIndex - 1, 0)"
-            class="absolute left-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-r"
-          >
-            ←
-          </button>
-          <button
-            @click="activeIndex = Math.min(activeIndex + 1, Math.ceil(4 / (isMobile ? 1 : 3)) - 1)"
-            class="absolute right-0 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-l"
-          >
-            →
-          </button>
-        </div>
-      </section>
+                <!-- Left: Contact Info -->
+                <div>
+                    <h4 class="text-sm text-blue-300 font-semibold mb-2">Contact Us</h4>
+                    <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+                    <p class="text-gray-400 mb-6">
+                        There are specific solutions around their data-driven real job. <br />
+                        A true asset to any team!
+                    </p>
+                    <div class="mb-4 flex items-center gap-3">
+                        <i class="fas fa-envelope text-xl text-blue-400"></i>
+                        <div>
+                            <p class="text-sm text-gray-300 font-semibold">Email</p>
+                            <p class="text-sm">aryhauffe@gmail.com</p>
+                        </div>
+                    </div>
 
-      <!-- Modal for Enlarged Image -->
-      <div
-        id="imageModal"
-        class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center hidden"
-      >
-        <img id="modalImage" class="max-w-full max-h-full rounded-lg" />
-        <button
-          id="closeModal"
-          class="absolute top-4 right-4 text-white text-2xl"
-        >
-          ✕
-        </button>
-      </div>
+                </div>
 
-      <!-- SKILLS Section -->
-      <section id="Skills" class="p-10 bg-white text-center">
-        <h2 class="text-3xl font-bold text-700 lang" data-key="skillsTitle">
-          Skills
-        </h2>
-        <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4"
-        >
-          <img
-            src="assets/stack_icons/python.png"
-            alt="Python"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/cpp.png"
-            alt="C++"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/java.png"
-            alt="Java"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/javascript.png"
-            alt="JavaScript"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/react.png"
-            alt="React"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/node.png"
-            alt="Node.js"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/html.png"
-            alt="HTML"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/css.png"
-            alt="CSS"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/mongodb.png"
-            alt="MongoDB"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/postgree.png"
-            alt="Postgree"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/vite.svg"
-            alt="Vite"
-            class="w-16 mx-auto"
-          />
-          <img
-            src="assets/stack_icons/icon.png"
-            alt="Tauri"
-            class="w-16 mx-auto"
-          />
-        </div>
-      </section>
+                <!-- Right: Contact Form -->
+                <form id="contact-form" action="https://formspree.io/f/mzzebvwv" method="POST" class="mt-5">
+                    <input type="text" name="name" placeholder="Nome" required
+                        class="block w-full p-2 border rounded-lg mb-3 text-black" />
+                    <input type="email" name="_replyto" placeholder="Email" required
+                        class="block w-full p-2 border rounded-lg mb-3 text-black" />
+                    <textarea name="message" placeholder="Mensagem" required
+                        class="block w-full p-2 border rounded-lg mb-1 text-black"></textarea>
+                    <button type="submit"
+                        class="bg-gradient-to-r font-semibold from-blue-500 to-blue-700 text-white px-3 py-1.5 rounded-md shadow hover:from-blue-600 hover:to-blue-800 transition">
+                        Submit
+                    </button>
+                </form>
+                
+            </div>
+        </section>
 
-      <!-- CONTACT Section -->
-      <section id="contact" class="p-10 bg-gray-300 text-center">
-        <h2 class="text-3xl font-bold text-700">Contato</h2>
-        <form
-          id="contact-form"
-          action="https://formspree.io/f/mzzebvwv"
-          method="POST"
-          class="mt-5 max-w-lg mx-auto"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Nome"
-            required
-            class="block w-full p-2 border rounded-lg mb-3"
-          />
-          <input
-            type="email"
-            name="_replyto"
-            placeholder="Email"
-            required
-            class="block w-full p-2 border rounded-lg mb-3"
-          />
-          <textarea
-            name="message"
-            placeholder="Mensagem"
-            required
-            class="block w-full p-2 border rounded-lg mb-3"
-          ></textarea>
-          <button type="submit" class="btn-hire lang">Enviar</button>
-        </form>
-      </section>
-    </text-700>
-
+    </main>
     <!-- FOOTER -->
-    <footer class="p-4 bg-black text-white text-center">
-      <div class="flex justify-center space-x-4 mt-2">
-        <a href="https://wa.me/393313151621">
-          <img src="assets/icons/whatsapp_icon.png" alt="WhatsApp" />
-        </a>
-        <a href="https://github.com/Arynelson/">
-          <img src="assets/icons/github_icon.png" alt="GitHub" />
-        </a>
-        <a href="mailto:aryhauffeneto@gmail.com">
-          <img src="assets/icons/gmail_icon.png" alt="Email" />
-        </a>
-        <a href="https://www.linkedin.com/in/ary-hauffe/">
-          <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
-        </a>
-      </div>
-      <p class="lang" data-key="footerText">&copy; 2024 Ary Hauffe Neto</p>
+    <footer class="bg-[#1E2A38] p-4 text-white text-center">
+        <div class="flex justify-center space-x-4 mt-2">
+            <a href="https://wa.me/393313151621">
+                <img src="assets/icons/whatsapp_icon.png" alt="WhatsApp" />
+            </a>
+            <a href="https://github.com/Arynelson/">
+                <img src="assets/icons/github_icon.png" alt="GitHub" />
+            </a>
+            <a href="mailto:aryhauffeneto@gmail.com">
+                <img src="assets/icons/gmail_icon.png" alt="Email" />
+            </a>
+            <a href="https://www.linkedin.com/in/ary-hauffe/">
+                <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
+            </a>
+        </div>
+        <p class="lang" data-key="footerText">&copy; 2024 Ary Hauffe Neto</p>
     </footer>
-  </body>
+</body>
+
 </html>
