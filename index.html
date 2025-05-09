@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +18,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ69MBXPW7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HZ69MBXPW7');
+    </script>
+
 </head>
 
 <body class="font-opensans">
@@ -103,11 +114,14 @@
             </p>
             <!-- Ícones Sociais -->
             <div class="flex justify-center space-x-4 mt-2 p-4 text-white text-center">
+
                 <a href="https://github.com/Arynelson/">
                     <img src="assets/icons/github_icon.png" alt="GitHub" />
+
                     <a href="https://www.linkedin.com/in/ary-hauffe/">
                         <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
                     </a>
+
                     <!-- Scroll Down Icon -->
                     <div class="flex justify-center animate-bounce">
                         <a href="#about" class="text-blue-400 text-xl">
@@ -126,6 +140,7 @@
                         Download C.V
                     </a>
                 </div>
+
                 <!-- Right: Texto e Detalhes -->
                 <div class="text-left">
                     <h3 class="text-sm tracking-widest text-blue-400 font-semibold mb-2">ABOUT ME</h3>
@@ -456,6 +471,7 @@
                             design.</p>
                         <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
                     </div>
+
                     <!-- Card 2 -->
                     <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
                         <div class="text-4xl mb-4"><i class="fas fa-server"></i></div>
@@ -464,6 +480,7 @@
                             SPRING, DJANGO, SQL.</p>
                         <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
                     </div>
+
                     <!-- Card 3 -->
                     <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
                         <div class="text-4xl mb-4"><i class="fas fa-paint-brush"></i></div>
@@ -494,7 +511,9 @@
                             <p class="text-sm">aryhauffe@gmail.com</p>
                         </div>
                     </div>
+
                 </div>
+
                 <!-- Right: Contact Form -->
                 <form id="contact-form" action="https://formspree.io/f/mzzebvwv" method="POST" class="mt-5">
                     <input type="text" name="name" placeholder="Nome" required
@@ -508,9 +527,10 @@
                         Submit
                     </button>
                 </form>
-                
+
             </div>
         </section>
+
     </main>
     <!-- FOOTER -->
     <footer class="bg-[#1E2A38] p-4 text-white text-center">
