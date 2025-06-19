@@ -1,555 +1,559 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="assets/icons/logo.png" type="x-icon" />
-    <meta name="description" content="Desenvolvedor Full Stack." />
-    <meta property="og:title" content="Ary Hauffe Neto" />
-    <title>Portfólio Ary Hauffe Neto</title>
+    <meta name="description" content="Full Stack Developer specialized in .NET and cloud solutions." />
+    <meta property="og:title" content="Ary Hauffe Neto - Full Stack Developer" />
+    <title>Ary Hauffe Neto - Full Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ69MBXPW7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-HZ69MBXPW7');
-    </script>
-
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .section-padding {
+            padding: 5rem 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
 </head>
 
-<body class="font-opensans">
-    <!-- Header fixo (fixed top-0)-->
-    <header class="bg-[#1E2A38] px-4 py-4 fixed top-0 w-full z-50 shadow-md">
-        <nav class="max-w-7xl mx-auto flex ">
-            <!-- LOGO E BOTÃO MENU MOBILE -->
-            <div class="flex w-full md:w-auto">
-                <!-- Botão Mobile -->
-                <div class="md:hidden">
-                    <button onclick="onToggleMenu()" class="text-white text-3xl right-0 :outline-none">
-                        ☰
-                    </button>
-                </div>
+<body class="gradient-bg text-white">
+    <!-- Fixed Header -->
+    <header class="bg-slate-900/90 backdrop-blur-md px-4 py-4 fixed top-0 w-full z-50 shadow-lg border-b border-slate-700">
+        <nav class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <div class="text-xl font-bold text-gradient">
+                Ary Hauffe
             </div>
-            <!-- MENU DESKTOP -->
-            <ul class="hidden md:flex items-center gap-8 text-white text-sm font-medium ml-auto">
-                <li><a href="#home" class="hover:text-blue-300">Home</a></li>
-                <li><a href="#about" class="hover:text-blue-300">About</a></li>
-                <li><a href="#portfolio" class="hover:text-blue-300">Portfolio</a></li>
-                <li><a href="#services" class="hover:text-blue-300">Service</a></li>
-                <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
-                <a href="mailto:aryhauffeneto@gmail.com"
-                    class="bg-gradient-to-r from-blue-500 to-blue-700 text-white px-4 py-1.5 rounded-md shadow hover:from-blue-600 hover:to-blue-800 transition">Hire
-                    Me</a>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <li><a href="#home" class="hover:text-blue-400 transition-colors">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-400 transition-colors">About</a></li>
+                <li><a href="#experience" class="hover:text-blue-400 transition-colors">Experience</a></li>
+                <li><a href="#skills" class="hover:text-blue-400 transition-colors">Skills</a></li>
+                <li><a href="#contact" class="hover:text-blue-400 transition-colors">Contact</a></li>
+                <li>
+                    <a href="mailto:aryhauffe@gmail.com" 
+                       class="btn-primary text-white px-6 py-2 rounded-full font-medium">
+                        Hire Me
+                    </a>
                 </li>
             </ul>
+            
+            <!-- Mobile Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
-        <!-- MENU MOBILE -->
-        <div id="mobileMenu"
-            class="hidden flex-col bg-[#1E2A38] items-center text-white w-full px-5 py-6 gap-4 text-base font-medium md:hidden">
-            <a href="#home" class="text-center w-full">Home</a>
-            <a href="#about" class="text-center w-full">About</a>
-            <a href="#portfolio" class="text-center w-full">Portfolio</a>
-            <a href="#services" class="text-center w-full">Service</a>
-            <a href="#contact" class="text-center w-full">Contact</a>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md mt-4 p-4 rounded-lg">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="#home" class="hover:text-blue-400 transition-colors" onclick="toggleMobileMenu()">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition-colors" onclick="toggleMobileMenu()">About</a>
+                <a href="#experience" class="hover:text-blue-400 transition-colors" onclick="toggleMobileMenu()">Experience</a>
+                <a href="#skills" class="hover:text-blue-400 transition-colors" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+            </div>
         </div>
     </header>
+
+    <main class="pt-20">
+        <!-- HOME Section -->
+        <section id="home" class="section-padding min-h-screen flex items-center justify-center">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in">
+                <!-- Profile Picture -->
+                <div class="mx-auto w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-blue-400 mb-8 shadow-xl">
+                    <img src="assets/images/homepic.png" alt="Ary Hauffe" class="w-full h-full object-cover" />
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    Hello, I'm <span class="text-gradient">Ary Hauffe</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl font-medium mb-6 text-slate-300">
+                    Full Stack Developer & .NET Specialist
+                </h2>
+                
+                <!-- Description -->
+                <p class="text-base md:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto">
+                    Backend developer specialized in <span class="text-blue-400 font-semibold">.NET and cloud solutions</span>. 
+                    I develop RESTful APIs with C# and Java, with experience in Azure and AWS.
+                </p>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                    <a href="#contact" class="btn-primary px-8 py-3 rounded-full font-medium inline-flex items-center justify-center">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Get in Touch
+                    </a>
+                    <a href="assets/CV/CV_ARY_EN.pdf" download 
+                       class="border-2 border-blue-400 text-blue-400 px-8 py-3 rounded-full font-medium hover:bg-blue-400 hover:text-white transition-all inline-flex items-center justify-center">
+                        <i class="fas fa-download mr-2"></i>
+                        Download CV
+                    </a>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/Arynelson/" class="text-2xl hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ary-hauffe-neto-bb6a0a23/" class="text-2xl hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                
+                <!-- Scroll Down -->
+                <div class="mt-12 animate-bounce">
+                    <a href="#about" class="text-blue-400 text-2xl">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT Section -->
+        <section id="about" class="section-padding bg-slate-800/50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto">
+                        Engineer in career transition, working for over 18 months on volunteer projects. 
+                        Currently enhancing experience in Azure through Microsoft certifications.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Personal Information -->
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Personal Information</h3>
+                            <div class="space-y-3 text-sm md:text-base">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Name:</span>
+                                    <span class="text-slate-300">Ary Hauffe Neto</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Age:</span>
+                                    <span class="text-slate-300">39 years</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Nationality:</span>
+                                    <span class="text-slate-300">Brazilian and Italian</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Location:</span>
+                                    <span class="text-slate-300">Chivasso, Italy</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Phone:</span>
+                                    <span class="text-slate-300">+39 331 315-1621</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Status:</span>
+                                    <span class="text-green-400">Available</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Languages -->
+                        <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Languages</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span>Portuguese</span>
+                                    <span class="text-green-400">Native</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>English</span>
+                                    <span class="text-green-400">Fluent</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Italian</span>
+                                    <span class="text-blue-400">Advanced</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Spanish</span>
+                                    <span class="text-yellow-400">Intermediate</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Professional Summary -->
+                    <div class="space-y-6">
+                        <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Professional Summary</h3>
+                            <p class="text-slate-300 leading-relaxed mb-4">
+                                Backend developer specialized in .NET and cloud solutions. I develop RESTful APIs with C# and Java. 
+                                Engineer in career transition, working for over 18 months on volunteer projects.
+                            </p>
+                            <p class="text-slate-300 leading-relaxed">
+                                Currently enhancing experience in Azure through Microsoft certifications. 
+                                Fluent in English, Italian, and Portuguese. European citizen currently living in Italy.
+                            </p>
+                        </div>
+                        
+                        <!-- Recent Certifications -->
+                        <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                            <h3 class="text-xl font-semibold mb-4 text-blue-400">Recent Certifications</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex items-center">
+                                    <i class="fas fa-certificate text-blue-400 mr-2"></i>
+                                    <span>Backend Development (Oracle ONE/Alura) - In Progress</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-certificate text-blue-400 mr-2"></i>
+                                    <span>Java & Spring Boot (Oracle ONE/Alura)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-certificate text-blue-400 mr-2"></i>
+                                    <span>C# (Free Code Camp/Microsoft)</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-certificate text-blue-400 mr-2"></i>
+                                    <span>AI Fundamentals (Oracle ONE/Alura)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE Section -->
+        <section id="experience" class="section-padding">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto">
+                        My professional journey combining technical expertise and leadership in innovative projects.
+                    </p>
+                </div>
+                
+                <div class="space-y-8">
+                    <!-- Experience 1 -->
+                    <div class="bg-slate-900/50 p-6 md:p-8 rounded-xl card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-400">Full Stack Developer</h3>
+                                <p class="text-slate-300">Pipoca Ágil | Remote</p>
+                            </div>
+                            <span class="text-sm text-slate-400 mt-2 md:mt-0">October 2024 - Present</span>
+                        </div>
+                        <div class="space-y-3 text-slate-300">
+                            <p>• Developed part of a project integrating public APIs to create a remote job search platform, using PostgreSQL for optimized data storage and queries.</p>
+                            <p>• Leading the development of Pipoca Academy, a platform aimed at helping professionals transition into IT careers.</p>
+                            <p>• Participating in Agile project simulations, contributing to sprints, code reviews, and problem-solving.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="bg-slate-900/50 p-6 md:p-8 rounded-xl card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-400">Technical Director</h3>
+                                <p class="text-slate-300">Instituto Çarakura | Florianópolis, Brazil</p>
+                            </div>
+                            <span class="text-sm text-slate-400 mt-2 md:mt-0">March 2012 - December 2017</span>
+                        </div>
+                        <div class="space-y-3 text-slate-300">
+                            <p>• Managed environmental and technology projects, implementing digital solutions for automated reporting and data analysis.</p>
+                            <p>• Led multidisciplinary teams in sustainability and technological innovation projects.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="bg-slate-900/50 p-6 md:p-8 rounded-xl card-hover">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-blue-400">IT Technician and Support</h3>
+                                <p class="text-slate-300">Department of Public Security | Florianópolis, Brazil</p>
+                            </div>
+                            <span class="text-sm text-slate-400 mt-2 md:mt-0">March 2009 - July 2011</span>
+                        </div>
+                        <div class="space-y-3 text-slate-300">
+                            <p>• Provided technical support and assistance to over 100 internal users.</p>
+                            <p>• Managed internal networks and provided IT support to 100+ users, ensuring 98% system uptime.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS Section -->
+        <section id="skills" class="section-padding bg-slate-800/50">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Skills</h2>
+                    <p class="text-slate-300 max-w-2xl mx-auto">
+                        Technologies and tools I master to create robust and scalable solutions.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Core Technologies -->
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400 flex items-center">
+                            <i class="fas fa-code mr-2"></i>
+                            Core Technologies
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span>C# & .NET 8</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Java & Spring Boot</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Entity Framework</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400 flex items-center">
+                            <i class="fas fa-cloud mr-2"></i>
+                            Cloud & DevOps
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span>Azure Services</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>AWS EC2/S3</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>Docker</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Databases -->
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400 flex items-center">
+                            <i class="fas fa-database mr-2"></i>
+                            Databases
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span>SQL Server</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>PostgreSQL</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>MongoDB</span>
+                                <div class="w-20 bg-slate-700 rounded-full h-2">
+                                    <div class="bg-blue-400 h-2 rounded-full skill-bar" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Knowledge -->
+                <div class="mt-12 bg-slate-900/50 p-6 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-6 text-blue-400 text-center">Additional Knowledge</h3>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">REST APIs</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">GitHub Actions</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">Azure Pipelines</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">Agile/Scrum</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">HTML/CSS</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">JavaScript</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">React</span>
+                        <span class="px-4 py-2 bg-slate-700 rounded-full text-sm hover:bg-blue-600 transition-colors">Node.js</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT Section -->
+        <section id="contact" class="section-padding">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Work Together?</h2>
+                <p class="text-slate-300 mb-8 max-w-2xl mx-auto">
+                    I am always open to new opportunities and challenging projects. 
+                    Contact me to discuss how I can contribute to your project.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <i class="fas fa-envelope text-3xl text-blue-400 mb-4"></i>
+                        <h3 class="font-semibold mb-2">Email</h3>
+                        <a href="mailto:aryhauffe@gmail.com" class="text-slate-300 hover:text-blue-400 transition-colors">
+                            aryhauffe@gmail.com
+                        </a>
+                    </div>
+                    
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <i class="fas fa-phone text-3xl text-blue-400 mb-4"></i>
+                        <h3 class="font-semibold mb-2">Phone</h3>
+                        <a href="tel:+393313151621" class="text-slate-300 hover:text-blue-400 transition-colors">
+                            +39 331 315-1621
+                        </a>
+                    </div>
+                    
+                    <div class="bg-slate-900/50 p-6 rounded-xl card-hover">
+                        <i class="fas fa-map-marker-alt text-3xl text-blue-400 mb-4"></i>
+                        <h3 class="font-semibold mb-2">Location</h3>
+                        <p class="text-slate-300">Chivasso, Italy</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/Arynelson/" class="text-3xl hover:text-blue-400 transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ary-hauffe-neto-bb6a0a23/" class="text-3xl hover:text-blue-400 transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:aryhauffe@gmail.com" class="text-3xl hover:text-blue-400 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-8 px-4 border-t border-slate-700">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-slate-400">
+                © 2024 Ary Hauffe Neto. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
     <script>
-        function onToggleMenu() {
+        function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         }
-        function openModal(title, description, stackIcons = []) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalDescription').innerText = description;
-            // Limpa ícones anteriores
-            const stackContainer = document.getElementById('modalStackIcons');
-            stackContainer.innerHTML = '';
-            // Adiciona novos ícones
-            stackIcons.forEach(icon => {
-                const img = document.createElement('img');
-                img.src = icon.src;
-                img.alt = icon.alt;
-                img.className = 'w-10 h-10';
-                stackContainer.appendChild(img);
-            });
-            document.getElementById('modal').classList.remove('hidden');
-            document.getElementById('modal').classList.add('flex');
-        }
 
-        function closeModal() {
-            document.getElementById('modal').classList.add('hidden');
-            document.getElementById('modal').classList.remove('flex');
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Skill bar animation when section comes into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        bar.style.width = bar.style.width || '0%';
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.querySelector('#skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
         }
     </script>
-    <main class="pt-32 pb-20 px-4 bg-[#0F172A] text-white min-h-screen flex flex-col items-center">
-        <!-- HOME Section -->
-        <section id="home" class="text-center max-w-2xl">
-            <!-- Foto de Perfil -->
-            <div class="mx-auto w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white mb-6">
-                <img src="assets/images/homepic.png" alt="Ary Hauffe" class="w-full h-full object-cover" />
-            </div>
-            <!-- Título -->
-            <h1 class="text-3xl md:text-4xl font-bold mb-2">
-                Hello, I’m <span class="text-blue-400 underline">Ary Hauffe</span>,
-            </h1>
-            <h2 class="text-xl md:text-2xl font-semibold mb-4">Full Stack Developer</h2>
-            <!-- Descrição -->
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed mb-6 px-4">
-                Full-stack web developer specialized in <span class="text-blue-300 font-semibold "> Java and
-                    React</span> — </br>
-                building clean, efficient, and scalable solutions.
-            </p>
-            <!-- Ícones Sociais -->
-            <div class="flex justify-center space-x-4 mt-2 p-4 text-white text-center">
-
-                <a href="https://github.com/Arynelson/">
-                    <img src="assets/icons/github_icon.png" alt="GitHub" />
-
-                    <a href="https://www.linkedin.com/in/ary-hauffe-neto-bb6a0a23/">
-                        <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
-                    </a>
-
-                    <!-- Scroll Down Icon -->
-                    <div class="flex justify-center animate-bounce">
-                        <a href="#about" class="text-blue-400 text-xl">
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                    </div>
-        </section>
-        <!-- ABOUT Section -->
-        <section id="about" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
-            <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center">
-                <!-- Left: Ilustração + Botão -->
-                <div class="bg-[#192A3E] rounded-lg p-6 border border-gray-600 text-center max-w-sm w-full">
-                    <img src="assets/images/draw.png" alt="About Illustration" class="mb-6 w-full" />
-                    <a href="assets/CV/CV_ARY_EN.pdf" download
-                        class="inline-block w-full py-2 bg-transparent border border-white rounded-md hover:bg-white hover:text-[#0F172A] transition text-sm">
-                        Download C.V
-                    </a>
-                </div>
-
-                <!-- Right: Texto e Detalhes -->
-                <div class="text-left">
-                    <h3 class="text-sm tracking-widest text-blue-400 font-semibold mb-2">ABOUT ME</h3>
-                    <h2 class="text-2xl md:text-3xl font-bold text-blue-300 mb-4 leading-snug">
-                        I Develop Systems<br />
-                        that Work.
-                    </h2>
-                    <p class="text-gray-300 text-sm md:text-base mb-6 max-w-xl">
-                        I build smart, reliable software to simplify daily operations
-                        and empower businesses to grow with confidence. Focused on
-                        clean code, practical solutions, and real impact.
-                    </p>
-
-                    <!-- Personal Info -->
-                    <div class="text-sm md:text-base space-y-2">
-                        <p><span class="font-semibold w-32 inline-block">Name</span>: Ary Hauffe</p>
-                        <p><span class="font-semibold w-32 inline-block">Age</span>: 40 years</p>
-                        <p><span class="font-semibold w-32 inline-block">Nationality</span>: Brazillian and Italian</p>
-                        <p><span class="font-semibold w-32 inline-block">Phone</span>: +39 331 315-1621</p>
-                        <p><span class="font-semibold w-32 inline-block">Language</span>: Portuguese, English and
-                            Italian</p>
-                        <p><span class="font-semibold w-32 inline-block">Freelance</span>: Available</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- EDUCATION Section -->
-        <section id="resume" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
-            <div class="max-w-7xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-16 tracking-wide">RESUME</h2>
-                <div class="grid md:grid-cols-2 gap-12">
-                    <!-- LEFT: Education & Experience -->
-                    <div class="space-y-12">
-                        <!-- Education -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-6">Education</h3>
-                            <div class="space-y-6 border-l border-gray-600 pl-6">
-                                <div class="relative">
-                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
-                                    <p class="text-sm text-gray-400 mb-1">2025</p>
-                                    <h4 class="font-semibold">ORACLE ONE - Next Generation</h4>
-                                    <p class="text-sm text-gray-300">
-                                        online course provided by ORACLE<br />
-                                        in partnership with ALURA
-                                    </p>
-                                </div>
-                                <div class="relative">
-                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
-                                    <p class="text-sm text-gray-400 mb-1">2008–2013</p>
-                                    <h4 class="font-semibold"> Sanitary and Environmental
-                                        Engineering</h4>
-                                    <p class="text-sm text-gray-300">
-                                        University Federal of Santa Catarina - UFSC <br />
-                                        Florianópolis, Brazil<br />
-                                    </p>
-                                </div>
-                                <div class="relative">
-                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
-                                    <p class="text-sm text-gray-400 mb-1">2005–2007</p>
-                                    <h4 class="font-semibold">Computer science </h4>
-                                    <p class="text-sm text-gray-300">
-                                        University Federal of Santa Catarina - UFSC <br />
-                                        Florianópolis, Brazil<br />
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Experience -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-6">Working Experience</h3>
-                            <div class="space-y-6 border-l border-gray-600 pl-6">
-                                <div class="relative">
-                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
-                                    <p class="text-sm text-gray-400 mb-1">2024–2025</p>
-                                    <h4 class="font-semibold">Full Stack Developer </h4>
-                                    <p class="text-sm text-gray-300">
-                                        Pipoca Academy - Remote<br />
-                                        Worked on back-end and front-end features. Created scalable services and APIs
-                                        using Node.js & Express. Optimized databases and layout designs for mobile
-                                        responsiveness.
-                                    </p>
-                                </div>
-                                <div class="relative">
-                                    <span class="absolute -left-3 top-1.5 w-3 h-3 bg-blue-400 rounded-full"></span>
-                                    <p class="text-sm text-gray-400 mb-1">2007–2008</p>
-                                    <h4 class="font-semibold"> IT Technician </h4>
-                                    <p class="text-sm text-gray-300">
-                                        Tech Long Ltd.<br />
-                                        Worked on back-end and front-end features. Created scalable services and APIs
-                                        using Node.js & Express. Optimized databases and layout designs for mobile
-                                        responsiveness.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT: Knowledge & Skills -->
-                    <div class="space-y-12">
-                        <!-- Knowledges -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-6">Knowledges</h3>
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Web Design</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">ReactJS</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">HTML</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">CSS</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">JavaScript</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">NodeJS</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Java</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Spring Boot</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">PostgreSQL</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">MySQL</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Python</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Solidity</span>
-                                <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">Vite</span>
-                            </div>
-                        </div>
-                        <!-- Skills -->
-                        <div>
-                            <h3 class="text-xl font-semibold mb-6">Skills</h3>
-                            <div class="space-y-5">
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>Java</span><span>85%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[85%]"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>JavaScript</span><span>90%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[90%]"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>HTML/CSS</span><span>95%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[95%]"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>React</span><span>85%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[85%]"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>NodeJS</span><span>75%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[75%]"></div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="flex justify-between mb-1 text-sm">
-                                        <span>PostgreSQL </span><span>80%</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-500 h-2 rounded-full w-[80%]"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- PORTFOLIO Section -->
-        <section id="portfolio" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-3xl font-bold tracking-wider mb-10">PORTFOLIO</h2>
-                <!-- Filters -->
-                <div class="flex flex-wrap justify-center gap-4 mb-12">
-                    <span
-                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">All</span>
-                    <span
-                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">JavaScript</span>
-                    <span
-                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">Python</span>
-                    <span
-                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">Java</span>
-                    <span
-                        class="px-4 py-1 border border-white rounded-full cursor-pointer hover:bg-white hover:text-[#0F172A] transition">PostgreSQL</span>
-                </div>
-                <!-- Portfolio Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                        'Job Search (Deutschland)', 
-                        'Job Search is a web application designed to help users search for job opportunities in Germany, save jobs, track applications, and manage their hiring process efficiently. The platform integrates with the Arbeitnow API for real-time job listings and provides secure user authentication for personalized job tracking.', 
-                        [
-                          { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
-                          { src: 'assets/stack_icons/react.png', alt: 'React' },
-                          { src: 'assets/stack_icons/html.png', alt: 'HTML' },
-                          { src: 'assets/stack_icons/css.png', alt: 'CSS' },
-                          { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
-                          { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
-                        ])">
-                        <img src="assets/images/JobSearch_2.png" alt="Job Search"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Job Search (Deutschland)
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                 'Barber Shop Management', 
-                 'A complete, offline-ready desktop app designed for small and medium-sized barbershops. It includes appointment scheduling, client and service management, professional tracking, financial control, and detailed reports — all within a secure and user-friendly interface.', 
-                 [
-                   { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
-                   { src: 'assets/stack_icons/react.png', alt: 'React' },
-                   { src: 'assets/stack_icons/html.png', alt: 'HTML' },
-                   { src: 'assets/stack_icons/css.png', alt: 'CSS' },
-                   { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
-                   { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
-                 ])">
-                        <img src="assets/images/BarbarShop_1.png" alt="Barber Shop Management"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Barber Shop Management
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                        'Restaurant Management', 
-                        'This is a Restaurant Order Management System designed to streamline the process of managing orders within a restaurant. The application is tailored for use by waiters, cashiers, managers, and kitchen staff. It provides an intuitive interface for handling menu items, customer orders, and real-time updates.', 
-                        [
-                          { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
-                          { src: 'assets/stack_icons/react.png', alt: 'React' },
-                          { src: 'assets/stack_icons/html.png', alt: 'HTML' },
-                          { src: 'assets/stack_icons/css.png', alt: 'CSS' },
-                          { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
-                          { src: 'assets/stack_icons/vite.svg', alt: 'Vite' },
-                          { src: 'assets/stack_icons/postgree.png ', alt: 'PostgreSQL' }
-                        ])">
-                        <img src="assets/images/Client_manager.jpeg" alt="Restaurant_manager"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Restaurant Management
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                            'Scape-Room', 
-                            'Escape Room Game is a simple and interactive puzzle adventure game where the player must explore different rooms, find hidden items and unlock the secret 4-digit password to escape. Developed with Python and Tkinter, this game features a user-friendly graphical user interface (GUI) with clickable buttons for exploration and interactions.You can play by downloading the Main.py file from github and running it in your code editor.', 
-                            [
-                              { src: 'assets/stack_icons/python.png', alt: 'Python' }
-                            ])">
-                        <img src="assets/images/Scape_2.png" alt="Scape-Room"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-mediu rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Scape-Room Game
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                                'Melodia', 
-                                'Melodia is a music streaming application that allows users to discover, listen to, and manage their favorite songs and playlists seamlessly. The platform features a user-friendly interface with personalized recommendations, curated playlists, and the ability to create and share custom playlists. Melodia also supports offline listening, ensuring users can enjoy their music anytime, anywhere, while providing secure user authentication for a tailored music experience. ', 
-                                [
-                                  { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
-                                  { src: 'assets/stack_icons/react.png', alt: 'React' },
-                                  { src: 'assets/stack_icons/html.png', alt: 'HTML' },
-                                  { src: 'assets/stack_icons/css.png', alt: 'CSS' },
-                                  { src: 'assets/stack_icons/node.png', alt: 'Node.js' },
-                                  { src: 'assets/stack_icons/vite.svg', alt: 'Vite' }
-                                ])">
-                        <img src="assets/images/Melodia_1.png" alt="Melodia"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm  rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Melodia Music Player
-                        </div>
-                    </div>
-                    <div class="relative group cursor-pointer" onclick="openModal(
-                                    'Pipoca Academy', 
-                                    'Pipoca Academy is an upcoming platform dedicated to facilitating career transitions into the tech industry. Designed to provide users with essential resources, training, and mentorship, it aims to empower individuals seeking to enhance their skills and knowledge in technology. Currently under construction, Pipoca Academy will serve as an extension of Pipoca Ágil, offering a comprehensive learning experience that includes interactive courses, expert guidance, and a supportive community to help users successfully navigate their career changes.', 
-                                    [
-                                      { src: 'assets/stack_icons/javascript.png', alt: 'JavaScript' },
-                                      { src: 'assets/stack_icons/html.png', alt: 'HTML' },
-                                      { src: 'assets/stack_icons/css.png', alt: 'CSS' }
-                                     ])">
-                        <img src="assets/images/Pipoca_academy.png" alt="Pipoca"
-                            class="w-full h-56 object-cover rounded-lg shadow-md group-hover:opacity-80 transition" />
-                        <!-- Overlay Title -->
-                        <div
-                            class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-2xl font-bold text-center py-2 text-sm font-medium rounded-b-lg opacity-0 group-hover:opacity-100 transition">
-                            Pipoca Academy
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
-                <div id="modal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50">
-                    <div class="bg-white text-[#0F172A] rounded-lg p-6 w-full max-w-md mx-4 relative">
-                        <button onclick="closeModal()"
-                            class="absolute top-2 right-4 text-xl font-bold text-gray-500 hover:text-red-600">&times;</button>
-                        <h3 id="modalTitle" class="text-xl font-bold mt-2"></h3>
-                        <p id="modalDescription" class="text-gray-700 mt-3 text-justify"></p>
-                        <div id="modalStackIcons" class="flex justify-center gap-2 mt-4 flex-wrap"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- SERVICES Section -->
-        <section id="services" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-3xl font-bold tracking-wider mb-2">Services</h2>
-                <p class="text-gray-400 mb-12">what I offer</p>
-
-                <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-                    <!-- Card 1 -->
-                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
-                        <div class="text-4xl mb-4"><i class="fas fa-code"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Front-End Developer</h3>
-                        <p class="text-sm text-gray-600 mb-4">Modern UI with React, Tailwind, animations, and responsive
-                            design.</p>
-                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
-                        <div class="text-4xl mb-4"><i class="fas fa-server"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Back-End Developer</h3>
-                        <p class="text-sm text-gray-600 mb-4">Secure APIs and scalable systems with Node, Express,
-                            SPRING, DJANGO, SQL.</p>
-                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="bg-white text-[#0F172A] rounded-lg shadow p-6 hover:shadow-xl transition">
-                        <div class="text-4xl mb-4"><i class="fas fa-paint-brush"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Web Design</h3>
-                        <p class="text-sm text-gray-600 mb-4">Clean, minimal, and conversion-focused UI/UX design
-                            principles.</p>
-                        <!-- <a href="#" class="text-blue-500 hover:underline text-sm">Read More</a> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- CONTACT Section -->
-        <section id="contact" class="bg-[#0F172A] text-white px-6 py-20 md:px-20">
-            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-
-                <!-- Left: Contact Info -->
-                <div>
-                    <h4 class="text-sm text-blue-300 font-semibold mb-2">Contact Us</h4>
-                    <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-                    <p class="text-gray-400 mb-6">
-                        There are specific solutions around their data-driven real job. <br />
-                        A true asset to any team!
-                    </p>
-                    <div class="mb-4 flex items-center gap-3">
-                        <i class="fas fa-envelope text-xl text-blue-400"></i>
-                        <div>
-                            <p class="text-sm text-gray-300 font-semibold">Email</p>
-                            <p class="text-sm">aryhauffe@gmail.com</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Right: Contact Form -->
-                <form id="contact-form" action="https://formspree.io/f/mzzebvwv" method="POST" class="mt-5">
-                    <input type="text" name="name" placeholder="Nome" required
-                        class="block w-full p-2 border rounded-lg mb-3 text-black" />
-                    <input type="email" name="_replyto" placeholder="Email" required
-                        class="block w-full p-2 border rounded-lg mb-3 text-black" />
-                    <textarea name="message" placeholder="Mensagem" required
-                        class="block w-full p-2 border rounded-lg mb-1 text-black"></textarea>
-                    <button type="submit"
-                        class="bg-gradient-to-r font-semibold from-blue-500 to-blue-700 text-white px-3 py-1.5 rounded-md shadow hover:from-blue-600 hover:to-blue-800 transition">
-                        Submit
-                    </button>
-                </form>
-
-            </div>
-        </section>
-
-    </main>
-    <!-- FOOTER -->
-    <footer class="bg-[#1E2A38] p-4 text-white text-center">
-        <div class="flex justify-center space-x-4 mt-2">
-            <a href="https://wa.me/393313151621">
-                <img src="assets/icons/whatsapp_icon.png" alt="WhatsApp" />
-            </a>
-            <a href="https://github.com/Arynelson/">
-                <img src="assets/icons/github_icon.png" alt="GitHub" />
-            </a>
-            <a href="mailto:aryhauffeneto@gmail.com">
-                <img src="assets/icons/gmail_icon.png" alt="Email" />
-            </a>
-            <a href="https://www.linkedin.com/in/ary-hauffe-neto-bb6a0a23/">
-                <img src="assets/icons/linkedi_icon.png" alt="LinkedIn" />
-            </a>
-        </div>
-        <p class="lang" data-key="footerText">&copy; 2024 Ary Hauffe Neto</p>
-    </footer>
 </body>
 
 </html>
+
