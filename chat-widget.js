@@ -74,6 +74,41 @@
     appendMessage("bot", "Hi! 👋 Ask me anything about Ary's experience, projects, or skills.");
   }
 
+  // ── Lightweight Markdown → HTML ────────────────────────────────────────────
+  function md(text) {
+    // Escape HTML first to prevent XSS
+    let s = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    // Code blocks (``` ... ```)
+    s = s.replace(/```[\s\S]*?```/g, function (m) {
+      return "<pre><code>" + m.slice(3, -3).trim() + "</code></pre>";
+    });
+    // Inline code
+    s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+    // Bold
+    s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    // Italic
+    s = s.replace(/\*(.+?)\*/g, "<em>$1</em>");
+    // Headings (### before ## before #)
+    s = s.replace(/^### (.+)$/gm, "<h4>$1</h4>");
+    s = s.replace(/^## (.+)$/gm, "<h3>$1</h3>");
+    s = s.replace(/^# (.+)$/gm, "<h2>$1</h2>");
+    // Unordered list items
+    s = s.replace(/^[-*] (.+)$/gm, "<li>$1</li>");
+    // Wrap consecutive <li> in <ul>
+    s = s.replace(/((?:<li>.*<\/li>\n?)+)/g, "<ul>$1</ul>");
+    // Line breaks (double newline → paragraph, single → <br>)
+    s = s.replace(/\n{2,}/g, "</p><p>");
+    s = s.replace(/\n/g, "<br>");
+    s = "<p>" + s + "</p>";
+    // Clean empty paragraphs
+    s = s.replace(/<p>\s*<\/p>/g, "");
+    return s;
+  }
+
   // ── UI helpers ─────────────────────────────────────────────────────────────
   function toggleChat() {
     isOpen = !isOpen;
@@ -94,7 +129,11 @@
     const div = document.createElement("div");
     div.classList.add("msg", role);
     if (extraClass) div.classList.add(extraClass);
-    div.textContent = text;
+    if (role === "bot") {
+      div.innerHTML = md(text);
+    } else {
+      div.textContent = text;
+    }
     messages.appendChild(div);
     messages.scrollTop = messages.scrollHeight;
     return div;
