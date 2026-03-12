@@ -10,10 +10,14 @@
   // ── Config ─────────────────────────────────────────────────────────────────
   const API_BASE_URL = "https://ary-portfolio-api.duckdns.org";
   const MAX_LENGTH = 500;
+  const COOLDOWN_MS = 3000; // 3s between messages
+  const MAX_MESSAGES = 30;  // Per session cap (matches daily backend limit)
 
   // ── State ──────────────────────────────────────────────────────────────────
   let isOpen = false;
   let isLoading = false;
+  let lastSentAt = 0;
+  let messageCount = 0;
 
   // ── Build DOM ──────────────────────────────────────────────────────────────
   function createWidget() {
@@ -148,10 +152,18 @@
   // ── API call ───────────────────────────────────────────────────────────────
   async function sendMessage() {
     if (isLoading) return;
+    const now = Date.now();
+    if (now - lastSentAt < COOLDOWN_MS) return;
+    if (messageCount >= MAX_MESSAGES) {
+      appendMessage("bot", "Você atingiu o limite de mensagens por sessão. Volte mais tarde!");
+      return;
+    }
     const input = document.getElementById("chat-input");
     const text = input.value.trim();
     if (!text) return;
 
+    lastSentAt = now;
+    messageCount++;
     input.value = "";
     appendMessage("user", text);
 
@@ -167,6 +179,9 @@
         body: JSON.stringify({ message: text }),
       });
 
+      if (response.status === 429) {
+        throw new Error("RATE_LIMITED");
+      }
       if (!response.ok) {
         throw new Error("API error: " + response.status);
       }
@@ -176,7 +191,10 @@
       appendMessage("bot", data.answer);
     } catch (err) {
       typingEl.remove();
-      appendMessage("bot", "Sorry, I couldn't connect right now. Try again in a moment.");
+      var errMsg = err.message === "RATE_LIMITED"
+        ? "Muitas mensagens! Aguarde um momento antes de enviar outra."
+        : "Desculpe, não consegui conectar agora. Tente novamente em instantes."
+      appendMessage("bot", errMsg);
       console.error("[chat-widget]", err);
     } finally {
       setLoading(false);
